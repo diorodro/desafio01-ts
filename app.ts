@@ -1,9 +1,22 @@
-import { CompanyAccount } from './class/CompanyAccount'
-import { PeopleAccount } from './class/PeopleAccount'
+import { SpecialAccount } from "./class/SpecialAccount";
+import { CompanyAccount } from "./class/CompanyAccount";
+import { DioAccount } from "./class/DioAccount";
 
-const peopleAccount: PeopleAccount = new PeopleAccount(1, 'Nath', 10)
-console.log(peopleAccount)
-peopleAccount.deposit()
-const companyAccount: CompanyAccount = new CompanyAccount('DIO', 20)
-companyAccount.deposit()
-console.log(companyAccount)
+const specialAccount = new SpecialAccount('Cliente Especial', 54321);
+specialAccount.deposit(100);
+specialAccount.getBalance();
+
+const companyAccount = new CompanyAccount('Empresa XYZ', 12345);
+companyAccount.getLoan(5000);
+companyAccount.getBalance();
+
+class PersonalAccount extends DioAccount {
+  constructor(name: string, accountNumber: number) {
+    super(name, accountNumber);
+  }
+}
+
+const personalAccount = new PersonalAccount('Cliente Pessoal', 67890);
+personalAccount.deposit(200); // Depósito
+personalAccount.withdraw(50);  // Saque
+personalAccount.getBalance();  // Ver saldo
